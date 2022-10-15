@@ -1,13 +1,22 @@
 import React from "react";
+import Links from "./Links";
+import "@testing-library/jest-dom";
 
-function About() {
+function About(props) {
   return (
+//     if (props.bio === true){
+//       return       <p>{props.bio}</p>}
+// else if (props.bio === false) {
+//   return {props.bio}
+// }
+    
     <div id="about">
       <h2>About Me</h2>
-      <p>Put the bio in here</p>
+      {props.bio && props.bio.length > 1 ? <p>{props.bio}</p>:null}
       <img src="https://i.imgur.com/mV8PQxj.gif" alt="I made this" />
       {/* add your <Links /> component here */}
-    </div>
+      <Links github={props.links.github} linkedin={props.links.linkedin}/>
+            </div>
   );
 }
 
